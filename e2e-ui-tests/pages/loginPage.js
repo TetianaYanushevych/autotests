@@ -6,7 +6,7 @@ exports.LoginPage = class LoginPage extends BasePage {
         this.email = page.locator("[placeholder='Login']");
         this.password = page.locator("[type='password']");
         this.loginButton = page.getByRole('button');
-
+        this.href = page.getByRole('href')
 
     }
 
@@ -14,8 +14,11 @@ exports.LoginPage = class LoginPage extends BasePage {
         await this.email.type(userEmail);
         await this.password.type(userPassword);
         await this.loginButton.click();
+        
     }
-
-
+   
+    async OpenSignUpPage () {
+        await this.href.click();
+    }
 
 }
